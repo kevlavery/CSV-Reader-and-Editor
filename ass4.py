@@ -7,7 +7,6 @@ import sys
 import os
 import os.path
 import re
-import csv
 
 def dependants(file, sources):
     temp = []
@@ -54,7 +53,7 @@ if __name__ == '__main__':
     names = []
     newnames = []
     ctype = []
-    for file in os.listdir():
+    for file in os.listdir(folderpath):
         if file[-2:] == '.c':
             ctype.append('CC')
             fcontents.append(file)
@@ -112,7 +111,7 @@ if __name__ == '__main__':
 
     try:
         filewrite = open('Makefile', 'a')
-        filewrite.write("\n\nclean:"\
+        filewrite.write("\n\nclean:"
                         "\n\trm -f $(OBJS)")
         
         filewrite.close()
